@@ -19,6 +19,8 @@ export type ResultItem = {
   maxWidth?: string
   /** Proporção do cartão (CSS). Padrão: proporção natural da foto "antes". Usar para igualar cards vizinhos na grelha. */
   aspectRatio?: string
+  /** `object-position` das fotos (ex.: '50% 20%'), se o recorte cortar cabeça/tronco. Padrão: centro. */
+  position?: string
   beforeAlt: string
   afterAlt: string
 }

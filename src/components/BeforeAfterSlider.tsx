@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react'
 import type { ImageEntry } from '../generated/images'
 import { ResultPicture } from './ResultPicture'
 
@@ -9,20 +9,30 @@ type Props = {
   afterAlt: string
   label: string
   aspectRatio?: string
+  /** `object-position` das fotos (ex.: '50% 20%'), para não cortar cabeça/tronco no recorte. */
+  position?: string
 }
 
 const SIZES = '(min-width: 1024px) 28rem, (min-width: 640px) 45vw, 100vw'
 const clamp = (n: number) => Math.min(100, Math.max(0, n))
 
+/** Converte uma proporção CSS ("3 / 5" ou "0.6") em número; undefined se não for reconhecida. */
+function parseRatio(value?: string) {
+  if (!value) return undefined
+  const [a, b = 1] = value.split('/').map((part) => parseFloat(part))
+  return a > 0 && b > 0 ? a / b : undefined
+}
+
 /**
  * Comparador antes/depois. Arrastar (mouse/toque) ou usar as setas do teclado.
  * Esquerda = antes, direita = depois. A rolagem vertical continua livre no celular (touch-action: pan-y).
  */
-export function BeforeAfterSlider({ before, after, beforeAlt, afterAlt, label, aspectRatio }: Props) {
+export function BeforeAfterSlider({ before, after, beforeAlt, afterAlt, label, aspectRatio, position }: Props) {
   const [pos, setPos] = useState(50)
   const boxRef = useRef<HTMLDivElement>(null)
   const dragging = useRef(false)
   const hint = useRef<{ kill: () => void } | null>(null)
+  const ratio = parseRatio(aspectRatio) ?? before.width / before.height
 
   const stopHint = () => {
     hint.current?.kill()
@@ -88,6 +98,8 @@ export function BeforeAfterSlider({ before, after, beforeAlt, afterAlt, label, a
     }
   }, [])
 
+  const objectPosition = position ? { objectPosition: position } : undefined
+
   return (
     <div
       ref={boxRef}
@@ -97,15 +109,15 @@ export function BeforeAfterSlider({ before, after, beforeAlt, afterAlt, label, a
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      style={{ aspectRatio: aspectRatio ?? `${before.width} / ${before.height}` }}
-      className="relative cursor-ew-resize touch-pan-y overflow-hidden rounded-3xl border border-line bg-graphite select-none has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-4 has-[input:focus-visible]:outline-blue-soft"
+      style={{ aspectRatio: aspectRatio ?? `${before.width} / ${before.height}`, '--ar': ratio } as CSSProperties}
+      className="relative mx-auto w-[min(100%,calc(62svh*var(--ar)))] cursor-ew-resize sm:w-full touch-pan-y overflow-hidden rounded-3xl border border-line bg-graphite select-none has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-4 has-[input:focus-visible]:outline-blue-soft"
     >
       {/* Depois (camada de baixo, sempre inteira) */}
-      <ResultPicture image={after} alt={afterAlt} sizes={SIZES} imgClassName="absolute inset-0 h-full w-full object-cover" />
+      <ResultPicture image={after} alt={afterAlt} sizes={SIZES} imgClassName="absolute inset-0 h-full w-full object-cover" style={objectPosition} />
 
       {/* Antes (camada de cima, revelada da esquerda até o divisor) */}
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <ResultPicture image={before} alt={beforeAlt} sizes={SIZES} imgClassName="absolute inset-0 h-full w-full object-cover" />
+        <ResultPicture image={before} alt={beforeAlt} sizes={SIZES} imgClassName="absolute inset-0 h-full w-full object-cover" style={objectPosition} />
       </div>
 
       <span

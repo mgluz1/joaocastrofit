@@ -28,7 +28,7 @@ export function ResultsPage() {
               </svg>
               {resultsPage.back}
             </a>
-            <p className="eyebrow mt-10" data-reveal>
+            <p className="eyebrow mt-10 text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {resultsPage.eyebrow}
             </p>
             <h1 id="resultados-title" className="h-display mt-4 text-[clamp(2.75rem,12vw,6rem)]" data-reveal>
@@ -43,7 +43,7 @@ export function ResultsPage() {
         <section aria-label="Comparativos de antes e depois" className="bg-coal pt-4 pb-20 md:pb-28">
           <div className="container-x">
             {/* Flex com quebra: 3 por linha no desktop e a última linha fica centralizada (ex.: 3 + 2) */}
-            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-10" data-stagger>
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-8 sm:gap-y-10" data-stagger>
               {resultItems.map((item, i) => {
                 const label = `Resultado ${String(i + 1).padStart(2, '0')}`
                 return (
@@ -65,6 +65,7 @@ export function ResultsPage() {
                         afterAlt={item.afterAlt}
                         label={label}
                         aspectRatio={item.aspectRatio}
+                        position={item.position}
                       />
                     </div>
                   </li>

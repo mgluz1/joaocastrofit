@@ -30,3 +30,12 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+
+# Domínio principal: o endereço padrão da Netlify redireciona para joaocastro.fit,
+# para o Google indexar uma única versão do site. Deploy previews usam outros
+# hosts (deploy-preview-N--joaocastrofit.netlify.app) e não são afetados.
+[[redirects]]
+  from = "https://joaocastrofit.netlify.app/*"
+  to = "https://joaocastro.fit/:splat"
+  status = 301
+  force = true

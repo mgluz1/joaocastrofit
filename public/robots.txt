@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://joaocastrofit.netlify.app/sitemap.xml
+Sitemap: https://joaocastro.fit/sitemap.xml
 

@@ -25,7 +25,7 @@ export const links = {
 
 export const site = {
   name: 'João Castro Fit',
-  url: 'https://joaocastrofit.netlify.app',
+  url: 'https://joaocastro.fit',
   title: 'João Castro Fit — Treino com método, evolução com constância',
   description:
     'João Castro. Rotina de treino, corrida e a construção de um método de acompanhamento baseado em ciência e consistência.',

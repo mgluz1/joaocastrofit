@@ -1,4 +1,4 @@
-import { academic, copy, links } from '../site.config'
+import { copy, links } from '../site.config'
 import { Logo } from './Logo'
 import { InstagramIcon, TikTokIcon, WhatsAppIcon } from './icons'
 
@@ -15,7 +15,7 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50">
-            Estudante de {academic.course}. {academic.cref}. Conteúdo de caráter informativo, sem prescrição de exercícios.
+            Conteúdo de caráter informativo, sem prescrição de exercícios.
           </p>
         </div>
 

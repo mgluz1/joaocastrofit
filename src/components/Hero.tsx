@@ -18,7 +18,7 @@ export function Hero() {
           name="principal"
           priority
           sizes={HERO_SIZES}
-          alt="João Castro em preto e branco na academia, segurando halteres"
+          alt="João Castro na academia, segurando halteres"
           className="block h-full w-full"
           imgClassName="hero-zoom h-full w-full object-cover object-[50%_18%]"
         />

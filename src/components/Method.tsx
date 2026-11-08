@@ -48,6 +48,24 @@ export function Method() {
               </li>
             ))}
           </ol>
+
+          {/* Acompanhamento na prática: moldura sutil com glow azul discreto */}
+          <figure
+            data-reveal
+            className="mt-8 overflow-hidden rounded-3xl border border-line shadow-[0_30px_80px_-30px_rgba(30,91,255,0.4)] md:mt-10"
+          >
+            <Picture
+              name="acompanhamento"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              alt="João de camiseta branca segurando uma barra com anilhas em uma academia, em preto e branco"
+              className="block"
+              imgClassName="aspect-[3/4] w-full object-cover"
+            />
+            <figcaption className="font-display border-t border-line px-5 py-4 text-[0.7rem] font-semibold tracking-[0.16em] text-white/70 uppercase md:px-7">
+              Rotina de treino na prática
+            </figcaption>
+          </figure>
+
           <p className="mt-8 text-sm text-white/55" data-reveal>
             * {method.footnote}
           </p>

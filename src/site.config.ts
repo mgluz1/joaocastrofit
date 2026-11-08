@@ -2,9 +2,8 @@
  * Configuração central de conteúdo e links.
  *
  * MODO
- *  - 'academico': versão atual. João é estudante de Educação Física sem registro no CREF,
- *    portanto NÃO há oferta de consultoria ou prescrição de exercícios. Contato institucional.
- *  - 'comercial': habilitar SOMENTE após o registro profissional e revisão jurídica/regulatória.
+ *  - 'academico': versão atual. NÃO há oferta de consultoria ou prescrição de exercícios. Contato institucional.
+ *  - 'comercial': habilitar SOMENTE após revisão jurídica/regulatória.
  */
 export type SiteMode = 'academico' | 'comercial'
 
@@ -29,16 +28,7 @@ export const site = {
   url: 'https://joaocastrofit.netlify.app',
   title: 'João Castro Fit — Treino com método, evolução com constância',
   description:
-    'João Castro, estudante de Educação Física. Rotina de treino, corrida e a construção de um método de acompanhamento baseado em ciência e consistência.',
-} as const
-
-// Dados acadêmicos — TODO: confirmar com o João.
-export const academic = {
-  course: 'Educação Física',
-  institution: '[Instituição]',
-  stage: '[Período / previsão de formatura]',
-  city: 'Goiânia — GO',
-  cref: 'Ainda sem registro no CREF',
+    'João Castro. Rotina de treino, corrida e a construção de um método de acompanhamento baseado em ciência e consistência.',
 } as const
 
 const isCommercial = SITE_MODE === 'comercial'
@@ -50,9 +40,9 @@ export const copy = {
     sticky: isCommercial ? 'Falar no WhatsApp' : 'Fale no WhatsApp',
   },
   hero: {
-    eyebrow: isCommercial ? 'Personal trainer · Consultoria online' : 'Estudante de Educação Física',
+    eyebrow: isCommercial ? 'Personal trainer · Consultoria online' : 'Treino e corrida',
     title: ['Treino com método.', 'Evolução com constância.'],
-    subtitle: 'Ciência, disciplina e consistência aplicadas à rotina de treino — do básico bem feito à evolução que se sustenta.',
+    subtitle: 'Chega de treinar sem direção. Cada escolha importa quando o objetivo é evoluir.',
     aside: 'Sem atalhos. Sem achismo. Só treino bem estruturado, adaptado ao objetivo e à rotina de cada pessoa.',
   },
   method: {
@@ -83,12 +73,16 @@ export const copy = {
     eyebrow: 'Sobre',
     title: 'Disciplina antes de qualquer resultado',
     intro:
-      'Sou o João Castro. O treino entrou na minha vida como hábito e virou propósito: hoje estudo Educação Física para transformar experiência prática em conhecimento científico.',
+      'Sou o João Castro. O treino entrou na minha vida como hábito e virou propósito: transformo experiência prática em método, com ciência e consistência.',
     timeline: [
-      { label: 'O começo', text: 'Treino em casa e na academia, aprendendo na prática que constância vence intensidade.' },
-      { label: 'Corrida e provas', text: 'Musculação e corrida lado a lado — performance, condicionamento e disciplina.' },
-      { label: 'Formação', text: 'Graduação em Educação Física para unir prática, ciência e responsabilidade.' },
-      { label: 'Próximo passo', text: 'Registro profissional e lançamento do acompanhamento individualizado.' },
+      {
+        label: 'O Começo',
+        text: 'Foi na prática que descobri o valor da disciplina e da constância. Cada treino se tornou parte de uma evolução maior.',
+      },
+      {
+        label: 'Além da Musculação',
+        text: 'Da academia às provas de corrida, encontrei novas formas de desafiar meus limites e evoluir.',
+      },
     ],
   },
   contact: {

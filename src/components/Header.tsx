@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react'
 import { copy, links } from '../site.config'
+import { resultsPage } from '../results.config'
 import { Logo } from './Logo'
 
-const nav = [
-  { href: '#metodo', label: 'Método' },
-  { href: '#mfit', label: 'MFIT' },
-  { href: '#sobre', label: 'Sobre' },
-]
+type HeaderProps = {
+  /** Prefixo das âncoras: '' na home; '/' em páginas internas (aponta de volta para a home). */
+  basePath?: string
+  /** Página atual, para marcar o item de navegação ativo. */
+  current?: 'results'
+}
 
-export function Header() {
+export function Header({ basePath = '', current }: HeaderProps) {
   const [solid, setSolid] = useState(false)
+
+  const nav = [
+    { href: `${basePath}#metodo`, label: 'Método' },
+    { href: `${basePath}#mfit`, label: 'MFIT' },
+    { href: `${basePath}#sobre`, label: 'Sobre' },
+    { href: resultsPage.path, label: 'Resultados', active: current === 'results' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40)
@@ -25,7 +34,7 @@ export function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
-        <a href="#topo" aria-label="João Castro Fit — início" className="text-white">
+        <a href={`${basePath}#topo`} aria-label="João Castro Fit — início" className="text-white">
           <Logo />
         </a>
 
@@ -35,7 +44,10 @@ export function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="font-display text-[0.8rem] font-medium tracking-[0.08em] uppercase text-white/80 transition-colors hover:text-white"
+                  aria-current={item.active ? 'page' : undefined}
+                  className={`font-display text-[0.8rem] font-medium tracking-[0.08em] uppercase transition-colors hover:text-white ${
+                    item.active ? 'text-white' : 'text-white/80'
+                  }`}
                 >
                   {item.label}
                 </a>
@@ -50,4 +62,3 @@ export function Header() {
     </header>
   )
 }
-

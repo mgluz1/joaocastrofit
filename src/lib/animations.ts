@@ -50,4 +50,46 @@ export function initAnimations() {
       },
     )
   }
+
+  // Linha do tempo da seção Sobre: preenchimento da linha e revelação dos pontos no scroll
+  const timeline = document.querySelector<HTMLElement>('[data-timeline]')
+  if (timeline) {
+    const dots = timeline.querySelectorAll<HTMLElement>('[data-timeline-dot]')
+    const timelineLine = timeline.querySelector<HTMLElement>('[data-timeline-line]')
+
+    if (timelineLine) {
+      gsap.fromTo(
+        timelineLine,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timeline,
+            start: 'top 80%',
+            end: 'bottom 70%',
+            scrub: 0.5,
+          },
+        },
+      )
+    }
+
+    dots.forEach((dot, index) => {
+      gsap.fromTo(
+        dot,
+        { scale: 0, autoAlpha: 0 },
+        {
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: dot,
+            start: index === 0 ? 'top 88%' : 'top 78%',
+            toggleActions: 'play none none reverse',
+          },
+        },
+      )
+    })
+  }
 }

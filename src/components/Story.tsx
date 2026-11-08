@@ -1,15 +1,27 @@
-import { academic, copy } from '../site.config'
+import { useRef } from 'react'
+import { copy } from '../site.config'
 import { Picture } from './Picture'
-import { ShieldIcon } from './icons'
 
+/** Fotos em ordem narrativa: começo → fases seguintes. `pos`: enquadramento vertical do recorte. */
 const gallery = [
-  { name: 'inicio', caption: 'Onde tudo começou', alt: 'João de costas fazendo pose de duplo bíceps, em preto e branco' },
-  { name: 'prova', caption: 'Provas de corrida', alt: 'João correndo uma prova de rua com número de peito, em preto e branco' },
-  { name: 'rotina', caption: 'Rotina ao ar livre', alt: 'João correndo em uma ciclovia, em preto e branco' },
+  { name: 'disciplina', caption: 'O começo', pos: 'object-[50%_15%]', alt: 'João sem camisa diante de um espelho, em preto e branco, em um quarto com parede azul' },
+  { name: 'inicio', caption: 'Onde tudo começou', pos: 'object-center', alt: 'João de costas fazendo pose de duplo bíceps, em preto e branco' },
+  { name: 'prova', caption: 'Provas de corrida', pos: 'object-center', alt: 'João correndo uma prova de rua com número de peito, em preto e branco' },
+  { name: 'rotina', caption: 'Rotina ao ar livre', pos: 'object-center', alt: 'João correndo em uma ciclovia, em preto e branco' },
 ] as const
 
 export function Story() {
   const { story } = copy
+  const trackRef = useRef<HTMLUListElement>(null)
+
+  /** Avança ou volta um cartão (botões do desktop). */
+  const scrollByCard = (dir: 1 | -1) => {
+    const track = trackRef.current
+    if (!track) return
+    const card = track.firstElementChild as HTMLElement | null
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0
+    track.scrollBy({ left: dir * ((card?.offsetWidth ?? track.clientWidth) + gap), behavior: 'smooth' })
+  }
 
   return (
     <section id="sobre" aria-labelledby="sobre-title" className="relative bg-coal py-20 md:py-32">
@@ -29,66 +41,102 @@ export function Story() {
         </div>
       </div>
 
-      {/* Galeria: carrossel com scroll-snap no celular, grade no desktop */}
+      {/* Narrativa em carrossel horizontal: o começo e as fases seguintes, em ordem. Arraste/rola no celular; botões no desktop. */}
       <div className="container-x">
         <ul
+          ref={trackRef}
           aria-label="Fotos da trajetória"
-          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0"
+          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 md:mx-0 md:mt-16 md:gap-5 md:px-0"
           data-stagger
         >
           {gallery.map((g) => (
-            <li key={g.name} className="relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl border border-line md:w-auto">
-              <Picture name={g.name} alt={g.alt} sizes="(min-width: 768px) 30vw, 78vw" imgClassName="aspect-[4/5] w-full object-cover" />
+            <li
+              key={g.name}
+              className="relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl border border-line shadow-[0_30px_80px_-40px_rgba(30,91,255,0.35)] md:w-[38%]"
+            >
+              <Picture name={g.name} alt={g.alt} sizes="(min-width: 768px) 38vw, 78vw" imgClassName={`aspect-[4/5] w-full object-cover ${g.pos}`} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-5 pt-14 font-display text-sm font-semibold tracking-[0.12em] uppercase">
                 {g.caption}
               </span>
             </li>
           ))}
         </ul>
+
+        <div className="mt-6 hidden justify-end gap-3 md:flex">
+          <button
+            type="button"
+            onClick={() => scrollByCard(-1)}
+            aria-label="Foto anterior"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-white transition-colors hover:border-blue hover:text-blue-soft"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m15 6-6 6 6 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollByCard(1)}
+            aria-label="Próxima foto"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-white transition-colors hover:border-blue hover:text-blue-soft"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m9 6 6 6-6 6" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <div className="container-x mt-16 grid gap-12 md:mt-24 lg:grid-cols-[minmax(0,1fr)_24rem] lg:gap-20">
-        {/* Linha do tempo */}
-        <ol className="relative border-l border-line pl-7" data-stagger>
-          {story.timeline.map((item, i) => (
-            <li key={item.label} className="relative pb-10 last:pb-0">
-              <span
-                aria-hidden="true"
-                className={`absolute top-1.5 -left-[calc(1.75rem+5px)] h-[9px] w-[9px] rounded-full ${
-                  i === story.timeline.length - 1 ? 'border border-blue-soft bg-black' : 'bg-blue'
-                }`}
-              />
-              <h3 className="font-display text-lg font-semibold uppercase md:text-xl">{item.label}</h3>
-              <p className="mt-1.5 max-w-lg leading-relaxed text-mute">{item.text}</p>
-            </li>
-          ))}
-        </ol>
+      <div className="container-x mt-12 md:mt-16">
+        <div className="max-w-xl">
+          <ol className="relative" data-timeline>
+            {story.timeline.map((item, index) => {
+              const isLast = index === story.timeline.length - 1
+              return (
+                <li
+                  key={item.label}
+                  data-timeline-item
+                  className="relative flex gap-4 md:gap-5"
+                >
+                  {/* Coluna da linha e do ponto */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Ponto azul minimalista com brilho sutil */}
+                    <span
+                      aria-hidden="true"
+                      data-timeline-dot
+                      className="relative z-10 mt-1.5 h-3 w-3 shrink-0 rounded-full bg-blue shadow-[0_0_10px_rgba(30,91,255,0.85)] ring-4 ring-coal"
+                    />
 
-        {/* Transparência de formação e credenciais */}
-        <aside aria-labelledby="credenciais-title" className="h-fit rounded-3xl border border-line bg-graphite p-6 md:p-8" data-reveal>
-          <ShieldIcon className="h-7 w-7 text-blue-soft" />
-          <h3 id="credenciais-title" className="font-display mt-4 text-base font-semibold tracking-[0.12em] uppercase">
-            Formação e credenciais
-          </h3>
-          <dl className="mt-5 space-y-4 text-sm">
-            <div>
-              <dt className="text-white/50">Curso</dt>
-              <dd className="mt-0.5 text-white">Graduação em {academic.course}</dd>
-            </div>
-            <div>
-              <dt className="text-white/50">Instituição</dt>
-              <dd className="mt-0.5 text-white">{academic.institution}</dd>
-            </div>
-            <div>
-              <dt className="text-white/50">Etapa</dt>
-              <dd className="mt-0.5 text-white">{academic.stage}</dd>
-            </div>
-            <div>
-              <dt className="text-white/50">Registro profissional</dt>
-              <dd className="mt-0.5 text-white">{academic.cref}</dd>
-            </div>
-          </dl>
-        </aside>
+                    {/* Linha vertical que conecta este ponto ao próximo */}
+                    {!isLast && (
+                      <div
+                        aria-hidden="true"
+                        className="relative w-px flex-1 bg-line"
+                      >
+                        <span
+                          data-timeline-line
+                          className="absolute inset-0 origin-top bg-gradient-to-b from-blue to-blue-soft"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Conteúdo do item */}
+                  <div className={isLast ? '' : 'pb-8 md:pb-10'}>
+                    <h3 className="font-display text-sm font-semibold tracking-[0.14em] text-white uppercase md:text-base">
+                      {item.label}
+                    </h3>
+                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-mute md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
+                </li>
+              )
+            })}
+          </ol>
+          <a href="/antes-e-depois/" className="btn btn-ghost mt-10 w-full sm:w-auto">
+            Ver antes e depois
+          </a>
+        </div>
       </div>
     </section>
   )

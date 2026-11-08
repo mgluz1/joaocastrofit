@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "assets": "node scripts/build-logo.mjs && node scripts/optimize-images.mjs",
+    "assets": "node scripts/build-logo.mjs && node scripts/optimize-images.mjs && node scripts/optimize-results.mjs",
     "dev": "vite",
     "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",

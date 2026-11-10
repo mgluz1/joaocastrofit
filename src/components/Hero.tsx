@@ -9,7 +9,7 @@ const delay = (s: number) => ({ '--d': `${s}s` }) as CSSProperties
 
 export function Hero() {
   return (
-    <section id="topo" aria-labelledby="hero-title" className="relative isolate flex min-h-[640px] h-svh flex-col overflow-hidden bg-black">
+    <section id="topo" aria-labelledby="hero-title" className="relative isolate flex min-h-[560px] h-svh flex-col overflow-hidden bg-black">
       {/* Foto central: tela cheia no celular; centro-direita com bordas esfumadas no desktop */}
       <div
         className="absolute inset-0 -z-10 md:inset-y-0 md:right-0 md:left-auto md:w-[70%] lg:right-[6%] lg:w-[52%] md:[mask-image:linear-gradient(to_right,transparent,#000_30%,#000_78%,transparent)]"

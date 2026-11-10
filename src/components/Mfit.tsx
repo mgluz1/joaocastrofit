@@ -71,7 +71,7 @@ export function Mfit() {
   const { mfit } = copy
 
   return (
-    <section id="mfit" aria-labelledby="mfit-title" className="relative overflow-hidden bg-black py-16 md:py-32">
+    <section id="mfit" aria-labelledby="mfit-title" className="relative isolate overflow-hidden bg-black py-16 md:py-32">
       <div className="container-x grid items-center gap-0 lg:grid-cols-2 lg:gap-20">
         {/* < lg: o wrapper some (contents) e a ordem fica texto → mockup → recursos; lg+: coluna direita como antes. */}
         <div className="contents lg:order-2 lg:block">
@@ -79,7 +79,7 @@ export function Mfit() {
             <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {mfit.eyebrow}
             </p>
-            <h2 id="mfit-title" className="h-display mt-4 text-[clamp(2rem,8vw,3.5rem)]" data-reveal>
+            <h2 id="mfit-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
               {mfit.title}
             </h2>
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-normal text-mute lg:leading-relaxed" data-reveal>
@@ -101,7 +101,7 @@ export function Mfit() {
               })}
             </ul>
 
-            <p className="mt-8 text-[0.8125rem] leading-relaxed text-white/45 lg:text-xs">{mfit.disclaimer}</p>
+            <p className="mt-8 text-[0.8125rem] leading-relaxed text-white/60 lg:text-xs">{mfit.disclaimer}</p>
           </div>
         </div>
 

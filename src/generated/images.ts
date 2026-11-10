@@ -353,6 +353,76 @@ export const images = {
       }
     ],
     "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABwALrV2u12jqampiYC0S0gAA/BgVlT6nGEXTQuAAAD+h4hKyJ+O5LKeZOvuq3YNt5bemoAcdttVAQJrd0al7KWEZcOiv7xm5hYebE8XoAAA"
+  },
+  "planilha-capa": {
+    "width": 827,
+    "height": 1170,
+    "avif": [
+      {
+        "w": 480,
+        "src": "/img/planilha-capa-480-df6e791f.avif"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-capa-768-df6e791f.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/img/planilha-capa-480-df6e791f.webp"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-capa-768-df6e791f.webp"
+      }
+    ],
+    "jpg": [
+      {
+        "w": 480,
+        "src": "/img/planilha-capa-480-df6e791f.jpg"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-capa-768-df6e791f.jpg"
+      }
+    ],
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoQABcAPu1iqU2ppaOiMAgBMB2JYwAAUqnrJlxLN+xHNIAA/vF4w3J8VQq/yTLqUBivVyxuMUY42L/GIGD3lLd96HycJkGVO0qANBNzEEc42vFvMQAAAA=="
+  },
+  "planilha-treino": {
+    "width": 827,
+    "height": 1170,
+    "avif": [
+      {
+        "w": 480,
+        "src": "/img/planilha-treino-480-3173654e.avif"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-treino-768-3173654e.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/img/planilha-treino-480-3173654e.webp"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-treino-768-3173654e.webp"
+      }
+    ],
+    "jpg": [
+      {
+        "w": 480,
+        "src": "/img/planilha-treino-480-3173654e.jpg"
+      },
+      {
+        "w": 768,
+        "src": "/img/planilha-treino-768-3173654e.jpg"
+      }
+    ],
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAwCdASoQABcAPu1kqU4ppaOiMAgBMB2JZwDImCKltpbOdHGXQAD+6OgJz21hKypLtn+gSZ1LdAAA"
   }
 } as const satisfies Record<string, ImageEntry>
 export type ImageName = keyof typeof images

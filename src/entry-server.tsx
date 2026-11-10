@@ -4,6 +4,11 @@ import { App } from './App'
 import { images } from './generated/images'
 import { HERO_SIZES } from './components/Hero'
 import { ResultsPage } from './pages/ResultsPage'
+import { ShopPage } from './pages/ShopPage'
+import { SHOP_ENABLED } from './shop.config'
+
+/** O pré-render só gera /planilhas/ quando a loja está habilitada. */
+export const shopEnabled = SHOP_ENABLED
 
 export function render() {
   return renderToString(
@@ -17,6 +22,14 @@ export function renderResults() {
   return renderToString(
     <StrictMode>
       <ResultsPage />
+    </StrictMode>,
+  )
+}
+
+export function renderShop() {
+  return renderToString(
+    <StrictMode>
+      <ShopPage />
     </StrictMode>,
   )
 }

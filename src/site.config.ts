@@ -16,6 +16,9 @@ const WHATSAPP_MESSAGE: Record<SiteMode, string> = {
   comercial: 'Olá, João. Tenho interesse na sua consultoria.',
 }
 
+/** Link do WhatsApp com mensagem própria (ex.: pedido de uma planilha específica). */
+export const whatsappUrl = (message: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+
 export const links = {
   whatsapp: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE[SITE_MODE])}`,
   instagram: 'https://www.instagram.com/joaocastrofit',

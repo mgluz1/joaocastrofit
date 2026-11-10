@@ -4,7 +4,8 @@ import { copy, links } from '../site.config'
 import { Picture } from './Picture'
 import { ArrowDownIcon, ArrowIcon, WhatsAppIcon } from './icons'
 
-export const HERO_SIZES = '(min-width: 1024px) 52vw, (min-width: 768px) 70vw, 100vw'
+// No celular a foto cobre a tela pela altura (object-cover): ela é ~1,4× mais larga que a tela, então pede-se uma variante maior.
+export const HERO_SIZES = '(min-width: 1024px) 52vw, (min-width: 768px) 70vw, 140vw'
 
 const delay = (s: number) => ({ '--d': `${s}s` }) as CSSProperties
 
@@ -28,13 +29,13 @@ export function Hero() {
       {/* Degradês para legibilidade (topo p/ header, base p/ texto) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_top,#000_0%,rgb(0_0_0/0.88)_28%,rgb(0_0_0/0.25)_58%,rgb(0_0_0/0.55)_100%)] md:bg-[linear-gradient(to_top,#000_0%,rgb(0_0_0/0.6)_30%,transparent_60%,rgb(0_0_0/0.5)_100%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_top,#000_0%,rgb(0_0_0/0.93)_40%,rgb(0_0_0/0.7)_60%,rgb(0_0_0/0.18)_80%,rgb(0_0_0/0.55)_100%)] md:bg-[linear-gradient(to_top,#000_0%,rgb(0_0_0/0.6)_30%,transparent_60%,rgb(0_0_0/0.5)_100%)]"
       />
 
       <div className="container-x relative mt-auto pb-[max(2.25rem,calc(env(safe-area-inset-bottom)+1.5rem))] md:pb-16">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
           <div>
-            <p className="eyebrow fade-up" style={delay(0.1)}>
+            <p className="eyebrow fade-up text-balance max-md:tracking-[0.14em] max-md:[text-shadow:0_1px_10px_rgb(0_0_0/0.9)]" style={delay(0.1)}>
               {copy.hero.eyebrow}
             </p>
 

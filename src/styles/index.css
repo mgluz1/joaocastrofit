@@ -191,6 +191,30 @@
   }
 }
 
+/* Hero no celular: o texto acompanha a altura útil da tela (Safari e navegadores embutidos têm barras que a reduzem),
+   para não subir sobre o rosto da foto. */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: clamp(1.9rem, min(11vw, 5.5svh), 4.75rem);
+  }
+}
+@media (max-width: 767px) and (max-height: 760px) {
+  .hero-link {
+    display: none;
+  }
+  .hero-sub {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .hero-ctas {
+    margin-top: 1.5rem;
+  }
+  .hero-ctas .btn {
+    min-height: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

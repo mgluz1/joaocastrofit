@@ -39,7 +39,7 @@ export function Hero() {
               {copy.hero.eyebrow}
             </p>
 
-            <h1 id="hero-title" className="h-display mt-4 text-[clamp(2.6rem,11vw,4.75rem)] md:max-w-[13ch]">
+            <h1 id="hero-title" className="hero-title h-display mt-4 text-[clamp(2.6rem,11vw,4.75rem)] md:max-w-[13ch]">
               {copy.hero.title.map((line, i) => (
                 <span key={line} className="line-mask">
                   <span style={delay(0.15 + i * 0.12)}>{line}</span>
@@ -47,11 +47,11 @@ export function Hero() {
               ))}
             </h1>
 
-            <p className="fade-up mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-white/80 md:text-xl" style={delay(0.45)}>
+            <p className="hero-sub fade-up mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-white/80 md:text-xl" style={delay(0.45)}>
               {copy.hero.subtitle}
             </p>
 
-            <div className="fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={delay(0.6)}>
+            <div className="hero-ctas fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={delay(0.6)}>
               <a href={links.whatsapp} target="_blank" rel="noopener" className="btn btn-light w-full sm:w-auto">
                 <WhatsAppIcon />
                 {copy.cta.primary}
@@ -63,7 +63,7 @@ export function Hero() {
             </div>
             <a
               href={resultsPage.path}
-              className="fade-up font-display mt-3 inline-flex min-h-11 items-center gap-2 [@media(max-height:620px)]:hidden text-[0.8125rem] font-semibold tracking-[0.08em] text-white/80 uppercase transition-colors hover:text-white"
+              className="hero-link fade-up font-display mt-3 inline-flex min-h-11 items-center gap-2 text-[0.8125rem] font-semibold tracking-[0.08em] text-white/80 uppercase transition-colors hover:text-white"
               style={delay(0.7)}
             >
               Ver resultados de antes e depois

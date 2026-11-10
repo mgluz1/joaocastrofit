@@ -1,0 +1,52 @@
+{
+  "id": "exemplo",
+  "titulo": "GUIA DE TREINOS",
+  "subtitulo": "EXEMPLO",
+  "resumo": "1 PROGRAMA DE 2 DIAS",
+  "legenda": "Modelo de dados: exercícios fictícios",
+  "orientacoes": [
+    "Orientação de exemplo 01.",
+    "Orientação de exemplo 02."
+  ],
+  "programas": [
+    {
+      "nome": "Exemplo / Programa 1",
+      "series": "Musculação: 3 × 12 repetições",
+      "dias": [
+        {
+          "titulo": "Dia A",
+          "exercicios": [
+            {
+              "nome": "Exercício 01"
+            },
+            {
+              "nome": "Exercício 02"
+            },
+            {
+              "nome": "Exercício 03",
+              "detalhe": "3 × 15 s"
+            },
+            {
+              "nome": "Cardio à escolha",
+              "detalhe": "20 min"
+            }
+          ]
+        },
+        {
+          "titulo": "Dia B",
+          "exercicios": [
+            {
+              "nome": "Exercício 04"
+            },
+            {
+              "nome": "Exercício 05"
+            },
+            {
+              "nome": "Exercício 06"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

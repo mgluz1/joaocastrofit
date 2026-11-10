@@ -15,7 +15,7 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50">
-            Conteúdo de caráter informativo, sem prescrição de exercícios.
+            {copy.footerNote}
           </p>
         </div>
 

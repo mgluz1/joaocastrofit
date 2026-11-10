@@ -30,6 +30,9 @@ const PHOTOS = {
   acompanhamento: { file: 'att01.png', widths: [480, 768, 960], vignette: 0.5, focus: [0.5, 0.4], contrast: 1.15, brightness: -8, quality: HQ },
   // Seção "Sobre": foto editorial (sem recorte; proporção original, exibida inteira).
   disciplina: { file: 'att02.png', widths: [480, 575], vignette: 0.5, focus: [0.5, 0.45], contrast: 1.12, brightness: -6 },
+  // Loja de planilhas: prévias (páginas do PDF) em cores, sem vinheta nem ajuste de contraste.
+  'planilha-capa': { file: 'shop/planilha-capa.png', color: true, widths: [480, 768], vignette: 0, focus: [0.5, 0.5], contrast: 1, brightness: 0, quality: HQ },
+  'planilha-treino': { file: 'shop/planilha-treino.png', color: true, widths: [480, 768], vignette: 0, focus: [0.5, 0.5], contrast: 1, brightness: 0, quality: HQ },
 }
 
 const cornerSvg = (w, h, { x, y, r, opacity }) =>

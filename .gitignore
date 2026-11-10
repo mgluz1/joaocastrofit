@@ -5,3 +5,7 @@ dist-ssr
 *.local
 .netlify
 
+# Planilhas (PDFs gerados e conteúdo dos guias): o conteúdo é o produto, não deve ir para o repositório público.
+out
+guias/*
+!guias/exemplo.json

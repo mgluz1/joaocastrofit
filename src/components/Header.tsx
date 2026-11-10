@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { copy, links } from '../site.config'
 import { resultsPage } from '../results.config'
+import { SHOP_ENABLED, shopPage } from '../shop.config'
 import { Logo } from './Logo'
 
 type HeaderProps = {
   /** Prefixo das âncoras: '' na home; '/' em páginas internas (aponta de volta para a home). */
   basePath?: string
   /** Página atual, para marcar o item de navegação ativo. */
-  current?: 'results'
+  current?: 'results' | 'shop'
 }
 
 export function Header({ basePath = '', current }: HeaderProps) {
@@ -19,6 +20,7 @@ export function Header({ basePath = '', current }: HeaderProps) {
     { href: `${basePath}#mfit`, label: 'MFIT' },
     { href: `${basePath}#sobre`, label: 'Sobre' },
     { href: resultsPage.path, label: 'Resultados', active: current === 'results' },
+    ...(SHOP_ENABLED ? [{ href: shopPage.path, label: 'Planilhas', active: current === 'shop' }] : []),
   ]
 
   useEffect(() => {

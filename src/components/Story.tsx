@@ -19,7 +19,7 @@ export function Story() {
             <p className="eyebrow" data-reveal>
               {story.eyebrow}
             </p>
-            <h2 id="sobre-title" className="h-display mt-4 text-[clamp(2rem,8vw,3.5rem)]" data-reveal>
+            <h2 id="sobre-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
               {story.title}
             </h2>
           </div>

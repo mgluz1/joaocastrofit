@@ -67,13 +67,13 @@ export function Mfit() {
   const { mfit } = copy
 
   return (
-    <section id="mfit" aria-labelledby="mfit-title" className="relative overflow-hidden bg-black py-20 md:py-32">
+    <section id="mfit" aria-labelledby="mfit-title" className="relative isolate overflow-hidden bg-black py-20 md:py-32">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="lg:order-2">
           <p className="eyebrow" data-reveal>
             {mfit.eyebrow}
           </p>
-          <h2 id="mfit-title" className="h-display mt-4 text-[clamp(2rem,8vw,3.5rem)]" data-reveal>
+          <h2 id="mfit-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
             {mfit.title}
           </h2>
           <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-mute" data-reveal>
@@ -93,7 +93,7 @@ export function Mfit() {
             })}
           </ul>
 
-          <p className="mt-8 text-xs leading-relaxed text-white/45">{mfit.disclaimer}</p>
+          <p className="mt-8 text-xs leading-relaxed text-white/60">{mfit.disclaimer}</p>
         </div>
 
         <div className="lg:order-1" data-reveal>

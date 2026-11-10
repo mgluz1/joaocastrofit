@@ -36,7 +36,7 @@ export function Footer() {
         </ul>
       </div>
 
-      <div className="container-x mt-10 flex flex-col gap-2 border-t border-line pt-6 text-xs text-white/40 md:flex-row md:justify-between">
+      <div className="container-x mt-10 flex flex-col gap-2 border-t border-line pt-6 text-xs text-white/60 md:flex-row md:justify-between">
         <p suppressHydrationWarning>© {new Date().getFullYear()} João Castro Fit. Todos os direitos reservados.</p>
         <p>{copy.privacy}</p>
       </div>
@@ -47,7 +47,7 @@ export function Footer() {
           target="_blank"
           rel="noopener"
           aria-label="Desenvolvido por mglabs"
-          className="group inline-flex items-center gap-2 rounded-lg text-xs tracking-[0.02em] text-white/40 transition-colors hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          className="group inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-xs tracking-[0.02em] text-white/60 transition-colors hover:text-white/80focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           <span>desenvolvido por</span>
           <img

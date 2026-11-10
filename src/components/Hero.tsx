@@ -1,7 +1,8 @@
 import type { CSSProperties } from 'react'
+import { resultsPage } from '../results.config'
 import { copy, links } from '../site.config'
 import { Picture } from './Picture'
-import { ArrowDownIcon, WhatsAppIcon } from './icons'
+import { ArrowDownIcon, ArrowIcon, WhatsAppIcon } from './icons'
 
 export const HERO_SIZES = '(min-width: 1024px) 52vw, (min-width: 768px) 70vw, 100vw'
 
@@ -59,6 +60,14 @@ export function Hero() {
                 <ArrowDownIcon className="h-4 w-4" />
               </a>
             </div>
+            <a
+              href={resultsPage.path}
+              className="fade-up font-display mt-3 inline-flex min-h-11 items-center gap-2 [@media(max-height:620px)]:hidden text-[0.8125rem] font-semibold tracking-[0.08em] text-white/80 uppercase transition-colors hover:text-white"
+              style={delay(0.7)}
+            >
+              Ver resultados de antes e depois
+              <ArrowIcon className="h-4 w-4" />
+            </a>
           </div>
 
           <p className="fade-up hidden text-base leading-relaxed text-white/75 lg:block" style={delay(0.8)}>

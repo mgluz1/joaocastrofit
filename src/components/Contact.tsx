@@ -1,3 +1,4 @@
+import { resultsPage } from '../results.config'
 import { copy, links } from '../site.config'
 import { LOGO_PATH, LOGO_VIEWBOX } from '../generated/logo'
 import { Picture } from './Picture'
@@ -57,6 +58,13 @@ export function Contact() {
                 TikTok
               </a>
             </div>
+            <a
+              href={resultsPage.path}
+              className="font-display inline-flex min-h-11 items-center gap-2 self-start text-[0.8125rem] font-semibold tracking-[0.08em] text-white/80 uppercase transition-colors hover:text-white"
+            >
+              Ver antes e depois
+              <ArrowIcon className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </div>

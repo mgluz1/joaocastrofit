@@ -8,11 +8,11 @@ export function Method() {
     <section id="metodo" aria-labelledby="metodo-title" className="relative bg-coal py-16 md:py-32">
       <div className="container-x grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
         {/* Coluna da imagem (fixa no desktop) */}
-        <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
             {method.eyebrow}
           </p>
-          <h2 id="metodo-title" className="h-display mt-4 text-[clamp(2rem,8vw,3.5rem)]" data-reveal>
+          <h2 id="metodo-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
             {method.title}
           </h2>
 
@@ -28,7 +28,7 @@ export function Method() {
         </div>
 
         {/* Etapas */}
-        <div className="relative">
+        <div className="relative min-w-0">
           <span aria-hidden="true" className="absolute top-8 bottom-24 left-[2rem] w-px bg-line md:left-[3.25rem]" />
           <span
             aria-hidden="true"

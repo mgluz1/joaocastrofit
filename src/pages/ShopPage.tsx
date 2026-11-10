@@ -98,32 +98,10 @@ export function ShopPage() {
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" data-reveal>
               {shopPage.subtitle}
             </p>
-            <p
-              className="font-display mt-6 inline-flex items-center gap-2.5 rounded-full border border-line px-4 py-2 text-[0.75rem] font-semibold tracking-[0.14em] text-white/80 uppercase"
-              data-reveal
-            >
-              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-blue shadow-[0_0_10px_rgba(30,91,255,0.85)]" />
-              {products.length} planilhas · PDF pelo WhatsApp
-            </p>
           </div>
         </section>
 
-        <section id="catalogo" aria-label="Catálogo de planilhas" className="bg-coal py-12 md:py-20">
-          <div className="container-x">
-            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
-              {products.map((product) => (
-                <li key={product.id} className="min-w-0">
-                  <ProductCard product={product} />
-                </li>
-              ))}
-            </ul>
-            <p className="mt-10 max-w-xl text-sm leading-relaxed text-white/60" data-reveal>
-              * {shopPage.disclaimer}
-            </p>
-          </div>
-        </section>
-
-        <section id="previa" aria-labelledby="previa-title" className="bg-black py-16 md:py-28">
+        <section id="previa" aria-labelledby="previa-title" className="bg-coal py-16 md:py-28">
           <div className="container-x grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
             <div className="min-w-0">
               <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
@@ -166,6 +144,21 @@ export function ShopPage() {
                 <figcaption className="font-display mt-3 text-xs font-semibold tracking-[0.14em] text-white/70 uppercase">Treino do dia</figcaption>
               </figure>
             </div>
+          </div>
+        </section>
+
+        <section id="catalogo" aria-label="Catálogo de planilhas" className="bg-black py-12 md:py-20">
+          <div className="container-x">
+            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+              {products.map((product) => (
+                <li key={product.id} className="min-w-0">
+                  <ProductCard product={product} />
+                </li>
+              ))}
+            </ul>
+            <p className="mt-10 max-w-xl text-sm leading-relaxed text-white/60" data-reveal>
+              * {shopPage.disclaimer}
+            </p>
           </div>
         </section>
 

@@ -40,7 +40,7 @@ export const shopPage = {
     'Material informativo. Antes de começar qualquer programa de exercícios, procure avaliação médica. Evite treinar com dores articulares ou desconfortos anormais.',
 } as const
 
-/** Ordem do catálogo. Só o guia Feminino Iniciante tem conteúdo pronto; os demais ficam "Em breve" até existirem. */
+/** Ordem do catálogo. `available: false` mostra o card como "Em breve", sem botão de compra. */
 export const products: readonly Product[] = [
   {
     id: 'iniciante-masculino',
@@ -49,7 +49,7 @@ export const products: readonly Product[] = [
     audience: 'Homens que estão começando na musculação',
     summary: 'Guia de treinos em PDF com orientações de execução e a sequência de exercícios de cada dia.',
     highlights: ['Orientações para o treino', 'Sequência de exercícios por dia', 'Entrega em PDF pelo WhatsApp'],
-    available: false,
+    available: true,
   },
   {
     id: 'iniciante-feminino',

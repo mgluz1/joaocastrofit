@@ -182,9 +182,6 @@ export function Story() {
               )
             })}
           </ol>
-          <a href="/antes-e-depois/" className="btn btn-blue mt-10 w-full sm:w-auto">
-            Ver antes e depois
-          </a>
         </div>
       </div>
     </section>

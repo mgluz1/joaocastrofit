@@ -3,9 +3,9 @@ site para o Joao Castro Fit
 
 ## Planilhas de treino (aba /planilhas/)
 
-A loja fica **desligada**: `SHOP_ENABLED = false` em `src/shop.config.ts`. Com ela desligada a página não é gerada
-(sem rota, sem item no menu, sem entrada no sitemap). Só ligar depois do registro profissional (CREF) e da revisão
-jurídica, junto com `SITE_MODE = 'comercial'` em `src/site.config.ts` (o build falha se a loja for ligada sem isso).
+A loja é controlada por `SHOP_ENABLED` em `src/shop.config.ts` (hoje **ligada**, junto com `SITE_MODE = 'comercial'`). Com ela desligada a
+página não é gerada (sem rota, sem item no menu, sem entrada no sitemap). Vender planilha de treino é prescrição de exercício:
+manter atenção ao registro profissional (CREF) e à revisão jurídica. O build falha se a loja for ligada fora do modo comercial.
 
 - Catálogo, textos e FAQ: `src/shop.config.ts` (cada produto tem `available` e `price`; sem valor, o card mostra "Valor pelo WhatsApp").
 - PDF de um guia: `npm run guia -- guias/<guia>.json --nome "Nome da aluna"` (veja `guias/exemplo.json`). Precisa de

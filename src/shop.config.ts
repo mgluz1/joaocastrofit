@@ -3,11 +3,11 @@ import { SITE_MODE } from './site.config'
 /**
  * Loja de planilhas de treino (aba /planilhas/).
  *
- * FLAG DESLIGADA POR PADRÃO. Vender planilha de treino é prescrição de exercício: só ligar depois do registro
- * profissional (CREF) e da revisão jurídica, junto com SITE_MODE = 'comercial' (src/site.config.ts).
+ * Ligada em 10/11/2026 por decisão do dono do site. Vender planilha de treino é prescrição de exercício:
+ * atenção ao registro profissional (CREF) e à revisão jurídica. Exige SITE_MODE = 'comercial' (src/site.config.ts).
  * Com a flag desligada a página não é gerada no build: sem rota, sem item no menu e sem entrada no sitemap.
  */
-export const SHOP_ENABLED = false as boolean
+export const SHOP_ENABLED = true as boolean
 
 if (SHOP_ENABLED && SITE_MODE !== 'comercial') {
   throw new Error("SHOP_ENABLED só pode ser ligada com SITE_MODE = 'comercial' (src/site.config.ts).")

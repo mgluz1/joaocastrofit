@@ -7,13 +7,13 @@
  */
 export type SiteMode = 'academico' | 'comercial'
 
-export const SITE_MODE = 'academico' as SiteMode
+export const SITE_MODE = 'comercial' as SiteMode
 
 const WHATSAPP_NUMBER = '5562985280332' // 55 (Brasil) + 62 (DDD) + número
 
 const WHATSAPP_MESSAGE: Record<SiteMode, string> = {
   academico: 'Olá, João. Vim pelo seu site.',
-  comercial: 'Olá, João. Tenho interesse na sua consultoria.',
+  comercial: 'Olá, João. Vim pelo seu site e tenho interesse nas planilhas de treino.',
 }
 
 /** Link do WhatsApp com mensagem própria (ex.: pedido de uma planilha específica). */
@@ -38,12 +38,12 @@ const isCommercial = SITE_MODE === 'comercial'
 
 export const copy = {
   cta: {
-    primary: isCommercial ? 'Quero começar' : 'Fale comigo',
-    header: isCommercial ? 'Começar' : 'Contato',
-    sticky: isCommercial ? 'Falar no WhatsApp' : 'Fale no WhatsApp',
+    primary: 'Fale comigo',
+    header: 'Contato',
+    sticky: 'Fale no WhatsApp',
   },
   hero: {
-    eyebrow: isCommercial ? 'Personal trainer · Consultoria online' : 'Treino e corrida',
+    eyebrow: isCommercial ? 'Treino e corrida · Planilhas de treino' : 'Treino e corrida',
     title: ['Treino com método.', 'Evolução com constância.'],
     subtitle: 'Chega de treinar sem direção. Cada escolha importa quando o objetivo é evoluir.',
     aside: 'Sem atalhos. Sem achismo. Só treino bem estruturado, adaptado ao objetivo e à rotina de cada pessoa.',
@@ -91,8 +91,11 @@ export const copy = {
   contact: {
     title: 'Vamos conversar?',
     text: isCommercial
-      ? 'Me chama no WhatsApp e conte seu objetivo. Respondo pessoalmente.'
+      ? 'Dúvidas sobre as planilhas ou só quer trocar uma ideia sobre treino? Me chama no WhatsApp.'
       : 'Parcerias, conteúdo, eventos ou só trocar uma ideia sobre treino — me chama.',
   },
+  footerNote: isCommercial
+    ? 'Planilhas de treino em PDF de caráter informativo. Procure avaliação médica antes de iniciar qualquer programa de exercícios.'
+    : 'Conteúdo de caráter informativo, sem prescrição de exercícios.',
   privacy: 'Este site não utiliza cookies nem coleta dados pessoais.',
 } as const

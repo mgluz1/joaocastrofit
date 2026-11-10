@@ -15,16 +15,19 @@ const GEN = path.join(root, 'src', 'generated')
  * crop: região do original (px). vignette: intensidade 0–1. focus: centro da vinheta (0–1).
  * contrast/brightness: ajuste linear após o P&B. color: mantém as cores originais (sem P&B).
  */
+// Fotos grandes na dobra do celular: compressão mais leve (menos banding nos pretos). Padrão: avif 50 · webp 70 · jpg 74.
+const HQ = { avif: 68, webp: 82, jpg: 86 }
+
 const PHOTOS = {
   principal: { file: 'principalcolorida.png', color: true, widths: [480, 768, 1066], vignette: 0.45, focus: [0.48, 0.38], contrast: 1.05, brightness: -4 },
-  metodo: { file: 'ft01.jpeg', crop: { left: 0, top: 80, width: 1066, height: 1333 }, widths: [480, 768, 1066], vignette: 0.55, focus: [0.5, 0.4], contrast: 1.15, brightness: -10 },
+  metodo: { file: 'ft01.jpeg', crop: { left: 0, top: 80, width: 1066, height: 1333 }, widths: [480, 768, 1066], vignette: 0.55, focus: [0.5, 0.4], contrast: 1.15, brightness: -10, quality: HQ },
   prova: { file: 'ft02.jpeg', crop: { left: 0, top: 120, width: 900, height: 1125 }, widths: [480, 768, 900], vignette: 0.6, focus: [0.48, 0.45], contrast: 1.2, brightness: -12 },
   rotina: { file: 'ft03.jpeg', crop: { left: 0, top: 220, width: 740, height: 925 }, widths: [480, 740], vignette: 0.6, focus: [0.5, 0.45], contrast: 1.2, brightness: -12 },
   pista: { file: 'ft04.jpeg', widths: [480, 768, 1074], vignette: 0.5, focus: [0.42, 0.68], contrast: 1.1, brightness: -30 },
   // corner: escurece um canto para esconder elementos do fundo (quadro na parede).
   inicio: { file: 'ft05.jpeg', crop: { left: 190, top: 210, width: 860, height: 1075 }, widths: [480, 768, 860], vignette: 0.9, focus: [0.5, 0.45], contrast: 1.25, brightness: -18, corner: { x: 0, y: 0, r: 0.3, opacity: 0.85 } },
   // Seção "O Método": acompanhamento na prática (sem recorte; proporção 3:4 original).
-  acompanhamento: { file: 'att01.png', widths: [480, 768, 960], vignette: 0.5, focus: [0.5, 0.4], contrast: 1.15, brightness: -8 },
+  acompanhamento: { file: 'att01.png', widths: [480, 768, 960], vignette: 0.5, focus: [0.5, 0.4], contrast: 1.15, brightness: -8, quality: HQ },
   // Seção "Sobre": foto editorial (sem recorte; proporção original, exibida inteira).
   disciplina: { file: 'att02.png', widths: [480, 575], vignette: 0.5, focus: [0.5, 0.45], contrast: 1.12, brightness: -6 },
 }
@@ -71,11 +74,12 @@ for (const [name, cfg] of Object.entries(PHOTOS)) {
   const entry = { width, height, avif: [], webp: [], jpg: [], lqip: '' }
 
   for (const w of cfg.widths) {
+    const q = { avif: 50, webp: 70, jpg: 74, ...cfg.quality }
     const resized = sharp(master).resize({ width: Math.min(w, width), withoutEnlargement: true })
     const variants = [
-      ['avif', resized.clone().avif({ quality: 50, effort: 6 })],
-      ['webp', resized.clone().webp({ quality: 70, effort: 6 })],
-      ['jpg', resized.clone().jpeg({ quality: 74, mozjpeg: true, progressive: true })],
+      ['avif', resized.clone().avif({ quality: q.avif, effort: 6 })],
+      ['webp', resized.clone().webp({ quality: q.webp, effort: 6 })],
+      ['jpg', resized.clone().jpeg({ quality: q.jpg, mozjpeg: true, progressive: true })],
     ]
     for (const [ext, pipeline] of variants) {
       const buf = await pipeline.toBuffer()

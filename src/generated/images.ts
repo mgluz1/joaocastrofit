@@ -47,7 +47,7 @@ export const images = {
         "src": "/img/principal-1066-c48847f4.jpg"
       }
     ],
-    "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQBACdASoQABgAPu1mqk4ppaOiMAgBMB2JQBfrCYhXKU75/2ovPYb+D1EAAP7w7LDcnxU4znWrLiGEPZbXjFLAWcvb45xoBaOjNxWBzdE2/H6dWBglltn6O2G+K9aHR8BCmJpAAAA="
+    "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoQABgAPu1mqk4ppaOiMAgBMB2JQBfrCYhXKU75/2eb+qbEUJgA/vDssNyfFTjOdasuIYQ9lteMUsBZy9vjnGgFo6M3FYLuoQUT0ByDfoCuW2g34HzgC7KYfxTW0QIigAA="
   },
   "metodo": {
     "width": 1066,
@@ -55,43 +55,43 @@ export const images = {
     "avif": [
       {
         "w": 480,
-        "src": "/img/metodo-480-a1e5d3fe.avif"
+        "src": "/img/metodo-480-511206dc.avif"
       },
       {
         "w": 768,
-        "src": "/img/metodo-768-a1e5d3fe.avif"
+        "src": "/img/metodo-768-511206dc.avif"
       },
       {
         "w": 1066,
-        "src": "/img/metodo-1066-a1e5d3fe.avif"
+        "src": "/img/metodo-1066-511206dc.avif"
       }
     ],
     "webp": [
       {
         "w": 480,
-        "src": "/img/metodo-480-a1e5d3fe.webp"
+        "src": "/img/metodo-480-511206dc.webp"
       },
       {
         "w": 768,
-        "src": "/img/metodo-768-a1e5d3fe.webp"
+        "src": "/img/metodo-768-511206dc.webp"
       },
       {
         "w": 1066,
-        "src": "/img/metodo-1066-a1e5d3fe.webp"
+        "src": "/img/metodo-1066-511206dc.webp"
       }
     ],
     "jpg": [
       {
         "w": 480,
-        "src": "/img/metodo-480-a1e5d3fe.jpg"
+        "src": "/img/metodo-480-511206dc.jpg"
       },
       {
         "w": 768,
-        "src": "/img/metodo-768-a1e5d3fe.jpg"
+        "src": "/img/metodo-768-511206dc.jpg"
       },
       {
         "w": 1066,
-        "src": "/img/metodo-1066-a1e5d3fe.jpg"
+        "src": "/img/metodo-1066-511206dc.jpg"
       }
     ],
     "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABQAPu1kqU2ppaOiMAgBMB2JaQAAUrneJUEkih5nAAD+7N8huGB2SLZ0u5pXYFRfQE53mzfagtvA63ftG4+BMuBWPaLhgYiQEtY5eW+EzAAA"
@@ -278,43 +278,43 @@ export const images = {
     "avif": [
       {
         "w": 480,
-        "src": "/img/acompanhamento-480-60556d1a.avif"
+        "src": "/img/acompanhamento-480-0f5745fd.avif"
       },
       {
         "w": 768,
-        "src": "/img/acompanhamento-768-60556d1a.avif"
+        "src": "/img/acompanhamento-768-0f5745fd.avif"
       },
       {
         "w": 960,
-        "src": "/img/acompanhamento-960-60556d1a.avif"
+        "src": "/img/acompanhamento-960-0f5745fd.avif"
       }
     ],
     "webp": [
       {
         "w": 480,
-        "src": "/img/acompanhamento-480-60556d1a.webp"
+        "src": "/img/acompanhamento-480-0f5745fd.webp"
       },
       {
         "w": 768,
-        "src": "/img/acompanhamento-768-60556d1a.webp"
+        "src": "/img/acompanhamento-768-0f5745fd.webp"
       },
       {
         "w": 960,
-        "src": "/img/acompanhamento-960-60556d1a.webp"
+        "src": "/img/acompanhamento-960-0f5745fd.webp"
       }
     ],
     "jpg": [
       {
         "w": 480,
-        "src": "/img/acompanhamento-480-60556d1a.jpg"
+        "src": "/img/acompanhamento-480-0f5745fd.jpg"
       },
       {
         "w": 768,
-        "src": "/img/acompanhamento-768-60556d1a.jpg"
+        "src": "/img/acompanhamento-768-0f5745fd.jpg"
       },
       {
         "w": 960,
-        "src": "/img/acompanhamento-960-60556d1a.jpg"
+        "src": "/img/acompanhamento-960-0f5745fd.jpg"
       }
     ],
     "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JaQAAUnOfxTTxWtWUgAD+7QwL15drTgS5tSV0HXVFfTLIuryB6DwBLTUYAAAA"

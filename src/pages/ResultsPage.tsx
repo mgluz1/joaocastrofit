@@ -4,6 +4,7 @@ import { BeforeAfterSlider } from '../components/BeforeAfterSlider'
 import { Contact } from '../components/Contact'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { ShareResult } from '../components/ShareResult'
 import { StickyCta } from '../components/StickyCta'
 
 export function ResultsPage() {
@@ -37,6 +38,10 @@ export function ResultsPage() {
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" data-reveal>
               {resultsPage.subtitle}
             </p>
+            <p className="font-display mt-6 inline-flex items-center gap-2.5 rounded-full border border-line px-4 py-2 text-[0.75rem] font-semibold tracking-[0.14em] text-white/80 uppercase" data-reveal>
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-blue shadow-[0_0_10px_rgba(30,91,255,0.85)]" />
+              {resultItems.length} registros de evolução
+            </p>
           </div>
         </section>
 
@@ -47,7 +52,7 @@ export function ResultsPage() {
               {resultItems.map((item, i) => {
                 const label = `Resultado ${String(i + 1).padStart(2, '0')}`
                 return (
-                  <li key={item.id} className="w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]">
+                  <li key={item.id} id={item.id} className="w-full scroll-mt-24 sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]">
                     {/* Largura máxima opcional: mantém a proporção natural e alinha a grelha (ex.: fotos muito verticais) */}
                     <div className="mx-auto w-full" style={{ maxWidth: item.maxWidth }}>
                       {/* Título acima do comparador: as legendas ficam alinhadas mesmo com proporções diferentes na fileira */}
@@ -67,6 +72,9 @@ export function ResultsPage() {
                         aspectRatio={item.aspectRatio}
                         position={item.position}
                       />
+                      <div className="mt-2 flex justify-end">
+                        <ShareResult id={item.id} title={`${label}${item.title ? ` — ${item.title}` : ''}`} />
+                      </div>
                     </div>
                   </li>
                 )

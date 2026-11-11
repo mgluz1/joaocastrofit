@@ -10,8 +10,9 @@ const ssrDir = path.join(root, 'dist-ssr')
 const { render, renderResults, renderShop, shopEnabled, heroPreload } = await import(pathToFileURL(path.join(ssrDir, 'entry-server.js')).href)
 
 const assets = await readdir(path.join(dist, 'assets'))
+// Só as fontes usadas acima da dobra: Fraunces 500 (+ itálico do destaque do hero) e Inter 400/600.
 const fontPreloads = assets
-  .filter((f) => /^(archivo|inter)-latin-wght-normal-.*\.woff2$/.test(f))
+  .filter((f) => /^(fraunces-latin-500-(normal|italic)|inter-latin-(400|600)-normal)-.*\.woff2$/.test(f))
   .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
   .join('\n    ')
 

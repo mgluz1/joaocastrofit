@@ -9,6 +9,20 @@ export const HERO_SIZES = '(min-width: 1024px) 52vw, (min-width: 768px) 70vw, 14
 
 const delay = (s: number) => ({ '--d': `${s}s` }) as CSSProperties
 
+/** Linha do título com o trecho em destaque (itálico real da Fraunces, azul da marca). */
+function HeroLine({ text }: { text: string }) {
+  const { highlight } = copy.hero
+  const at = text.indexOf(highlight)
+  if (at < 0) return <>{text}</>
+  return (
+    <>
+      {text.slice(0, at)}
+      <em>{highlight}</em>
+      {text.slice(at + highlight.length)}
+    </>
+  )
+}
+
 export function Hero() {
   return (
     <section id="topo" aria-labelledby="hero-title" className="relative isolate flex min-h-[560px] h-svh flex-col overflow-hidden bg-black">
@@ -39,15 +53,17 @@ export function Hero() {
               {copy.hero.eyebrow}
             </p>
 
-            <h1 id="hero-title" className="hero-title h-display mt-4 text-[clamp(2.6rem,11vw,4.75rem)] md:max-w-[13ch]">
+            <h1 id="hero-title" className="hero-title h-display mt-4 text-[clamp(1.9rem,9.4vw,4rem)] md:text-[clamp(3rem,5.2vw,4.4rem)]">
               {copy.hero.title.map((line, i) => (
                 <span key={line} className="line-mask">
-                  <span style={delay(0.15 + i * 0.12)}>{line}</span>
+                  <span style={delay(0.15 + i * 0.12)}>
+                    <HeroLine text={line} />
+                  </span>
                 </span>
               ))}
             </h1>
 
-            <p className="hero-sub fade-up mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-white/80 md:text-xl" style={delay(0.45)}>
+            <p className="hero-sub fade-up mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" style={delay(0.45)}>
               {copy.hero.subtitle}
             </p>
 

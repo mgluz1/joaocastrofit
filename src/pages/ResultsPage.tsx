@@ -22,7 +22,7 @@ export function ResultsPage() {
           <div className="container-x">
             <a
               href="/"
-              className="font-display inline-flex items-center gap-2 text-[0.75rem] font-medium tracking-[0.12em] text-white/70 uppercase transition-colors hover:text-white"
+              className="font-display inline-flex items-center gap-2 text-[0.75rem] font-semibold tracking-[0.12em] text-white/70 uppercase transition-colors hover:text-white"
             >
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M19 12H5m6-6-6 6 6 6" />
@@ -32,7 +32,7 @@ export function ResultsPage() {
             <p className="eyebrow mt-10 text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {resultsPage.eyebrow}
             </p>
-            <h1 id="resultados-title" className="h-display mt-4 text-[clamp(2.75rem,12vw,6rem)]" data-reveal>
+            <h1 id="resultados-title" className="h-display mt-4 text-[clamp(2.4rem,11vw,5.5rem)]" data-reveal>
               {resultsPage.title}
             </h1>
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" data-reveal>

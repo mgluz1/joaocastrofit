@@ -40,7 +40,7 @@ export const shopPage = {
     'Material informativo. Antes de começar qualquer programa de exercícios, procure avaliação médica. Evite treinar com dores articulares ou desconfortos anormais.',
 } as const
 
-/** Ordem do catálogo. `available: false` mostra o card como "Em breve", sem botão de compra. */
+/** Ordem do catálogo. `available: false` mostra o card como "Em breve", sem botão de compra (hoje todos estão disponíveis). */
 export const products: readonly Product[] = [
   {
     id: 'iniciante-masculino',
@@ -67,7 +67,7 @@ export const products: readonly Product[] = [
     audience: 'Homens que já treinam com regularidade',
     summary: 'Guia de treinos em PDF para quem já tem base, com a sequência de exercícios de cada dia.',
     highlights: ['Orientações para o treino', 'Sequência de exercícios por dia', 'Entrega em PDF pelo WhatsApp'],
-    available: false,
+    available: true,
   },
   {
     id: 'intermediario-feminino',
@@ -76,7 +76,7 @@ export const products: readonly Product[] = [
     audience: 'Mulheres que já treinam com regularidade',
     summary: 'Guia de treinos em PDF para quem já tem base, com a sequência de exercícios de cada dia.',
     highlights: ['Orientações para o treino', 'Sequência de exercícios por dia', 'Entrega em PDF pelo WhatsApp'],
-    available: false,
+    available: true,
   },
   {
     id: 'foco-gluteos',
@@ -85,7 +85,7 @@ export const products: readonly Product[] = [
     audience: 'Para quem quer priorizar glúteos e pernas',
     summary: 'Guia de treinos em PDF com ênfase em glúteos, com a sequência de exercícios de cada dia.',
     highlights: ['Ênfase em glúteos e pernas', 'Sequência de exercícios por dia', 'Entrega em PDF pelo WhatsApp'],
-    available: false,
+    available: true,
   },
 ]
 

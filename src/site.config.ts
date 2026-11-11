@@ -45,6 +45,8 @@ export const copy = {
   hero: {
     eyebrow: isCommercial ? 'Treino e corrida · Planilhas de treino' : 'Treino e corrida',
     title: ['Treino com método.', 'Evolução com constância.'],
+    /** Trecho do título em itálico e azul (Fraunces itálico). */
+    highlight: 'constância.',
     subtitle: 'Chega de treinar sem direção. Cada escolha importa quando o objetivo é evoluir.',
     aside: 'Sem atalhos. Sem achismo. Só treino bem estruturado, adaptado ao objetivo e à rotina de cada pessoa.',
   },

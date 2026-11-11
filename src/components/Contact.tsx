@@ -31,7 +31,7 @@ export function Contact() {
                 <path fill="currentColor" fillRule="evenodd" d={LOGO_PATH} />
               </svg>
             </div>
-            <h2 id="contato-title" className="h-display text-[clamp(2.5rem,10vw,5.25rem)]">
+            <h2 id="contato-title" className="h-display text-[clamp(2.25rem,9.5vw,5rem)]">
               {copy.contact.title}
             </h2>
           </div>

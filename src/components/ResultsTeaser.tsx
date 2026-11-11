@@ -21,7 +21,7 @@ export function ResultsTeaser() {
           <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
             {resultsPage.eyebrow}
           </p>
-          <h2 id="resultados-home-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
+          <h2 id="resultados-home-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words" data-reveal>
             {resultsPage.title}
           </h2>
           <p className="mt-5 max-w-xl text-[1.0625rem] leading-normal text-mute lg:leading-relaxed" data-reveal>

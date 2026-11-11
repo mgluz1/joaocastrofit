@@ -67,7 +67,7 @@ export function Header({ basePath = '', current }: HeaderProps) {
                 <a
                   href={item.href}
                   aria-current={item.active ? 'page' : undefined}
-                  className={`font-display text-[0.8rem] font-medium tracking-[0.08em] uppercase transition-colors hover:text-white ${
+                  className={`font-display text-[0.8rem] font-semibold tracking-[0.08em] uppercase transition-colors hover:text-white ${
                     item.active ? 'text-white' : 'text-white/80'
                   }`}
                 >
@@ -103,7 +103,7 @@ export function Header({ basePath = '', current }: HeaderProps) {
               <a
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-display flex min-h-12 items-center text-sm font-medium tracking-[0.12em] uppercase text-white/85 active:text-white"
+                className="font-display flex min-h-12 items-center text-sm font-semibold tracking-[0.12em] uppercase text-white/85 active:text-white"
               >
                 {item.label}
               </a>

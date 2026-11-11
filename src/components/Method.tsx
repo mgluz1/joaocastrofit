@@ -12,7 +12,7 @@ export function Method() {
           <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
             {method.eyebrow}
           </p>
-          <h2 id="metodo-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words lg:text-[min(3.7vw,3.1rem)] lg:break-normal" data-reveal>
+          <h2 id="metodo-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words lg:text-[min(4vw,3.4rem)] lg:break-normal" data-reveal>
             {method.title}
           </h2>
 
@@ -44,8 +44,8 @@ export function Method() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
-                    <h3 className="font-display text-base font-semibold tracking-tight uppercase md:text-xl">{step.title}</h3>
-                    <p className="mt-1 text-[0.9375rem] leading-normal text-mute md:mt-2 md:leading-relaxed md:text-[0.975rem]">{step.text}</p>
+                    <h3 className="font-serif text-[1.2rem] leading-snug font-medium tracking-[-0.01em] md:text-[1.4rem]">{step.title}</h3>
+                    <p className="mt-1.5 text-base leading-relaxed text-mute md:mt-2">{step.text}</p>
                   </div>
                 </li>
               ))}

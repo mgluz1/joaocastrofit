@@ -33,11 +33,11 @@ function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
-      <h2 id={`${product.id}-title`} className="h-display mt-5 text-[1.75rem] break-words md:text-[2rem]">
+      <h2 id={`${product.id}-title`} className="h-display mt-5 text-[1.9rem] break-words md:text-[2.1rem]">
         {product.name}
       </h2>
       <p className="mt-2 text-sm text-white/60">{product.audience}</p>
-      <p className="mt-4 text-[0.9375rem] leading-relaxed text-mute">{product.summary}</p>
+      <p className="mt-4 text-base leading-relaxed text-mute">{product.summary}</p>
 
       <ul className="mt-5 space-y-2 text-sm text-white/85">
         {product.highlights.map((item) => (
@@ -82,7 +82,7 @@ export function ShopPage() {
           <div className="container-x">
             <a
               href="/"
-              className="font-display inline-flex min-h-11 items-center gap-2 text-[0.75rem] font-medium tracking-[0.12em] text-white/70 uppercase transition-colors hover:text-white"
+              className="font-display inline-flex min-h-11 items-center gap-2 text-[0.75rem] font-semibold tracking-[0.12em] text-white/70 uppercase transition-colors hover:text-white"
             >
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M19 12H5m6-6-6 6 6 6" />
@@ -92,7 +92,7 @@ export function ShopPage() {
             <p className="eyebrow mt-8 text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {shopPage.eyebrow}
             </p>
-            <h1 id="planilhas-title" className="h-display mt-4 text-[clamp(2.25rem,11vw,6rem)] break-words" data-reveal>
+            <h1 id="planilhas-title" className="h-display mt-4 text-[clamp(2.4rem,10.5vw,5.5rem)] break-words" data-reveal>
               {shopPage.title}
             </h1>
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" data-reveal>
@@ -107,7 +107,7 @@ export function ShopPage() {
               <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
                 Por dentro do guia
               </p>
-              <h2 id="previa-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
+              <h2 id="previa-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words" data-reveal>
                 Veja como é o material
               </h2>
               <p className="mt-5 max-w-xl text-[1.0625rem] leading-normal text-mute lg:leading-relaxed" data-reveal>
@@ -167,7 +167,7 @@ export function ShopPage() {
             <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               Passo a passo
             </p>
-            <h2 id="como-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
+            <h2 id="como-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words" data-reveal>
               Como funciona
             </h2>
             <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
@@ -176,8 +176,8 @@ export function ShopPage() {
                   <span className="font-display flex h-8 w-8 items-center justify-center rounded-full border border-blue/60 bg-black text-[0.8125rem] font-semibold text-blue-soft">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-display mt-4 text-base font-semibold tracking-tight uppercase">{step.title}</h3>
-                  <p className="mt-1.5 text-[0.9375rem] leading-normal text-mute">{step.text}</p>
+                  <h3 className="font-serif mt-4 text-[1.2rem] leading-snug font-medium tracking-[-0.01em]">{step.title}</h3>
+                  <p className="mt-1.5 text-base leading-relaxed text-mute">{step.text}</p>
                 </li>
               ))}
             </ol>
@@ -186,7 +186,7 @@ export function ShopPage() {
 
         <section id="duvidas" aria-labelledby="duvidas-title" className="bg-black py-16 md:py-28">
           <div className="container-x max-w-3xl">
-            <h2 id="duvidas-title" className="h-display text-[clamp(1.75rem,8vw,3rem)] break-words" data-reveal>
+            <h2 id="duvidas-title" className="h-display text-[clamp(2rem,8.4vw,3rem)] break-words" data-reveal>
               Dúvidas frequentes
             </h2>
             <div className="mt-8 divide-y divide-line border-y border-line" data-reveal>
@@ -198,7 +198,7 @@ export function ShopPage() {
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </summary>
-                  <p className="pb-5 text-[0.9375rem] leading-relaxed text-mute">{item.a}</p>
+                  <p className="pb-5 text-base leading-relaxed text-mute">{item.a}</p>
                 </details>
               ))}
             </div>

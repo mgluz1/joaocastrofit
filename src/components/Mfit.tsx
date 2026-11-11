@@ -42,7 +42,7 @@ function PhoneMockup() {
             <ul className="mt-3 space-y-2 lg:mt-4">
               {workout.map((ex, i) => (
                 <li key={ex.name} className={`rounded-xl border p-2.5 lg:p-3 ${i === 0 ? 'border-blue/60 bg-blue/10' : 'border-white/10 bg-white/[0.03]'}`}>
-                  <p className="text-[0.78rem] leading-tight font-medium">{ex.name}</p>
+                  <p className="text-[0.78rem] leading-tight font-semibold">{ex.name}</p>
                   <p className="mt-1 flex justify-between text-[0.6875rem] text-white/55">
                     <span>{ex.sets}</span>
                     <span className="text-blue-soft">{ex.load}</span>
@@ -79,7 +79,7 @@ export function Mfit() {
             <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {mfit.eyebrow}
             </p>
-            <h2 id="mfit-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
+            <h2 id="mfit-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words" data-reveal>
               {mfit.title}
             </h2>
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-normal text-mute lg:leading-relaxed" data-reveal>
@@ -88,14 +88,14 @@ export function Mfit() {
           </div>
 
           <div className="order-3 lg:order-none">
-            <ul className="grid grid-cols-2 gap-3 lg:mt-10" data-stagger>
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-10" data-stagger>
               {mfit.features.map((f, i) => {
                 const Icon = featureIcons[i]
                 return (
                   <li key={f.title} className="rounded-2xl border border-line bg-graphite/60 p-4 lg:p-5">
                     <Icon className="h-5 w-5 text-blue-soft lg:h-6 lg:w-6" />
-                    <h3 className="font-display mt-3 text-sm font-semibold uppercase lg:mt-4 lg:text-base">{f.title}</h3>
-                    <p className="mt-1 text-[0.8125rem] leading-snug text-mute lg:mt-1.5 lg:leading-relaxed lg:text-sm">{f.text}</p>
+                    <h3 className="font-serif mt-3 text-[1.2rem] leading-snug font-medium tracking-[-0.01em] lg:mt-4 lg:text-[1.3rem]">{f.title}</h3>
+                    <p className="mt-1.5 text-base leading-relaxed text-mute">{f.text}</p>
                   </li>
                 )
               })}

@@ -62,7 +62,7 @@ export function Story() {
             <p className="eyebrow text-[0.8125rem] lg:text-[0.75rem]" data-reveal>
               {story.eyebrow}
             </p>
-            <h2 id="sobre-title" className="h-display mt-4 text-[clamp(1.75rem,8vw,3.5rem)] break-words" data-reveal>
+            <h2 id="sobre-title" className="h-display mt-4 text-[clamp(2rem,8.6vw,3.5rem)] break-words" data-reveal>
               {story.title}
             </h2>
           </div>
@@ -171,10 +171,10 @@ export function Story() {
 
                   {/* Conteúdo do item */}
                   <div className={isLast ? '' : 'pb-8 md:pb-10'}>
-                    <h3 className="font-display text-sm font-semibold tracking-[0.14em] text-white uppercase md:text-base">
+                    <h3 className="font-serif text-[1.2rem] leading-snug font-medium tracking-[-0.01em] text-white md:text-[1.35rem]">
                       {item.label}
                     </h3>
-                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-mute md:text-base">
+                    <p className="mt-1.5 text-base leading-relaxed text-mute">
                       {item.text}
                     </p>
                   </div>

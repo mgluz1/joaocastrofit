@@ -1,5 +1,6 @@
 import { shopPage } from '../shop.config'
 import { Picture } from './Picture'
+import { PromoPill } from './PromoPill'
 import { ArrowIcon } from './icons'
 
 const levels = ['Iniciante', 'Intermediário', 'Focado em glúteos'] as const
@@ -35,6 +36,9 @@ export function ShopTeaser() {
           <p className="mt-3 text-sm text-white/60" data-reveal>
             Versões masculina e feminina para iniciante e intermediário.
           </p>
+          <div className="mt-6" data-reveal>
+            <PromoPill />
+          </div>
         </div>
 
         <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-3 sm:gap-5 lg:col-start-1 lg:row-span-2 lg:row-start-1" data-reveal>

@@ -23,6 +23,8 @@ export type Product = {
   highlights: readonly string[]
   /** Valor em reais. Sem valor definido, o card mostra "Valor pelo WhatsApp". */
   price?: number
+  /** Preço "de" (riscado) mostrado junto da oferta. */
+  originalPrice?: number
   /** false = card "Em breve", sem botão de compra (conteúdo ainda não pronto). */
   available: boolean
 }
@@ -41,7 +43,7 @@ export const shopPage = {
 } as const
 
 /** Ordem do catálogo. `available: false` mostra o card como "Em breve", sem botão de compra (hoje todos estão disponíveis). */
-export const products: readonly Product[] = [
+const catalog: readonly Product[] = [
   {
     id: 'iniciante-masculino',
     name: 'Iniciante masculino',
@@ -88,6 +90,28 @@ export const products: readonly Product[] = [
     available: true,
   },
 ]
+
+/** Preço e promoção válidos para todas as planilhas. */
+export const shopPromo = {
+  label: 'Oferta de lançamento',
+  /** Preço promocional (R$). */
+  price: 49.99,
+  /**
+   * Preço "de" (R$), mostrado riscado. VALOR DE EXEMPLO: usar somente um preço que já foi praticado de verdade;
+   * preço de referência fictício em oferta é propaganda enganosa (CDC, art. 37). Sem prazo nem contagem regressiva
+   * de propósito: só mostrar prazo se ele for real e respeitado.
+   */
+  originalPrice: 89.9,
+} as const
+
+export const products: readonly Product[] = catalog.map((product) => ({
+  ...product,
+  price: shopPromo.price,
+  originalPrice: shopPromo.originalPrice,
+}))
+
+/** Desconto em % entre o preço "de" e o preço da oferta. */
+export const discountPercent = (original: number, price: number) => Math.round((1 - price / original) * 100)
 
 export const shopSteps = [
   { title: 'Escolha a planilha', text: 'Veja o nível e o perfil de cada guia e escolha o seu.' },

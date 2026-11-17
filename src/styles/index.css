@@ -192,6 +192,75 @@
   }
 }
 
+/* ——— Promoção das planilhas: brilho, pulso e ponto vivo (desligados com "reduzir movimento") ——— */
+@keyframes promo-shine {
+  0%,
+  55% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-18deg);
+  }
+}
+@keyframes promo-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(30 91 255 / 0.6);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px rgb(30 91 255 / 0);
+  }
+}
+@keyframes promo-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.7);
+  }
+}
+@keyframes promo-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(30 91 255 / 0);
+  }
+  50% {
+    box-shadow: 0 0 40px -10px rgb(30 91 255 / 0.55);
+  }
+}
+.promo-badge,
+.btn-shine,
+.promo-pill {
+  position: relative;
+  overflow: hidden;
+}
+.promo-badge {
+  animation: promo-pulse 2.2s ease-out infinite;
+}
+.promo-badge::after,
+.btn-shine::after,
+.promo-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+  pointer-events: none;
+  animation: promo-shine 3.8s ease-in-out infinite;
+}
+.btn-shine::after {
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.4), transparent);
+}
+.promo-card {
+  animation: promo-glow 4.2s ease-in-out infinite;
+}
+.promo-dot {
+  animation: promo-dot 1.4s ease-in-out infinite;
+}
+
 /* Celular: entrada do hero mais curta, para o texto (LCP) aparecer antes. */
 @media (max-width: 767px) {
   .fade-up {

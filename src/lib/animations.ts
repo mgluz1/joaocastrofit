@@ -37,6 +37,29 @@ export function initAnimations() {
     })
   })
 
+  // Preço promocional: ao entrar na tela, o valor "cai" do preço original até o preço da oferta.
+  const brl = (v: number) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  gsap.utils.toArray<HTMLElement>('[data-price-drop]').forEach((el) => {
+    const from = Number(el.dataset.from)
+    const to = Number(el.dataset.to)
+    if (!Number.isFinite(from) || !Number.isFinite(to) || !isBelowFold(el)) return
+    const state = { v: from }
+    el.textContent = brl(from)
+    gsap.to(state, {
+      v: to,
+      duration: 1.3,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      onUpdate: () => {
+        el.textContent = brl(state.v)
+      },
+      onComplete: () => {
+        el.textContent = brl(to)
+        gsap.fromTo(el, { scale: 1.14, transformOrigin: 'left center' }, { scale: 1, duration: 0.55, ease: 'back.out(2.2)' })
+      },
+    })
+  })
+
   // Linha de progresso das etapas do método
   const line = document.querySelector<HTMLElement>('[data-progress-line]')
   if (line?.parentElement) {

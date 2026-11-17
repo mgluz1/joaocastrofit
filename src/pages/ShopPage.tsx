@@ -4,7 +4,8 @@ import { Header } from '../components/Header'
 import { Picture } from '../components/Picture'
 import { StickyCta } from '../components/StickyCta'
 import { WhatsAppIcon } from '../components/icons'
-import { formatPrice, products, shopFaq, shopPage, shopSteps, type Product } from '../shop.config'
+import { PromoPill } from '../components/PromoPill'
+import { discountPercent, formatPrice, products, shopFaq, shopPage, shopPromo, shopSteps, type Product } from '../shop.config'
 import { whatsappUrl } from '../site.config'
 
 const CheckIcon = () => (
@@ -14,13 +15,19 @@ const CheckIcon = () => (
 )
 
 function ProductCard({ product }: { product: Product }) {
-  const buy = whatsappUrl(`Olá, João. Quero a planilha ${product.name}.`)
+  const hasPromo = product.price != null && product.originalPrice != null && product.originalPrice > product.price
+  const off = hasPromo ? discountPercent(product.originalPrice!, product.price!) : 0
+  const buy = whatsappUrl(
+    product.price != null
+      ? `Olá, João. Quero a planilha ${product.name} pela oferta de ${formatPrice(product.price)}.`
+      : `Olá, João. Quero a planilha ${product.name}.`,
+  )
 
   return (
     <article
       id={product.id}
       aria-labelledby={`${product.id}-title`}
-      className="flex h-full scroll-mt-24 flex-col rounded-3xl border border-line bg-graphite/70 p-6 md:p-7"
+      className={`flex h-full scroll-mt-24 flex-col rounded-3xl border bg-graphite/70 p-6 md:p-7 ${hasPromo ? 'promo-card border-blue/40' : 'border-line'}`}
     >
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-display rounded-full border border-blue/50 px-3 py-1 text-xs font-semibold tracking-[0.14em] text-blue-soft uppercase">
@@ -29,6 +36,12 @@ function ProductCard({ product }: { product: Product }) {
         {!product.available && (
           <span className="font-display rounded-full bg-white/10 px-3 py-1 text-xs font-semibold tracking-[0.14em] text-white/80 uppercase">
             {shopPage.soon}
+          </span>
+        )}
+        {hasPromo && (
+          <span className="promo-badge font-display ml-auto rounded-full bg-blue px-3 py-1 text-xs font-semibold tracking-[0.06em] text-white">
+            <span className="sr-only">Desconto de </span>
+            −{off}%
           </span>
         )}
       </div>
@@ -49,11 +62,34 @@ function ProductCard({ product }: { product: Product }) {
       </ul>
 
       <div className="mt-auto pt-7">
-        {(product.available || product.price != null) && (
-          <p className="font-display text-xl font-semibold">{product.price != null ? formatPrice(product.price) : shopPage.noPrice}</p>
+        {hasPromo ? (
+          <>
+            <p className="font-display flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-blue-soft uppercase">
+              <span aria-hidden="true" className="promo-dot h-2 w-2 rounded-full bg-blue-soft shadow-[0_0_10px_rgba(77,130,255,0.9)]" />
+              {shopPromo.label}
+            </p>
+            <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="sr-only">De </span>
+              <s className="text-base text-white/50">{formatPrice(product.originalPrice!)}</s>
+              <span className="sr-only"> por </span>
+              <strong
+                data-price-drop
+                data-from={product.originalPrice}
+                data-to={product.price}
+                className="font-serif text-[2.5rem] leading-none font-medium tracking-[-0.02em] text-white"
+              >
+                {formatPrice(product.price!)}
+              </strong>
+            </p>
+            <p className="mt-2 text-sm text-white/60">Você economiza {formatPrice(product.originalPrice! - product.price!)}</p>
+          </>
+        ) : (
+          (product.available || product.price != null) && (
+            <p className="font-display text-xl font-semibold">{product.price != null ? formatPrice(product.price) : shopPage.noPrice}</p>
+          )
         )}
         {product.available ? (
-          <a href={buy} target="_blank" rel="noopener" className="btn btn-blue mt-4 w-full">
+          <a href={buy} target="_blank" rel="noopener" className={`btn btn-blue mt-4 w-full ${hasPromo ? 'btn-shine' : ''}`}>
             <WhatsAppIcon />
             {shopPage.cta}
           </a>
@@ -98,6 +134,9 @@ export function ShopPage() {
             <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-white/80 md:text-lg" data-reveal>
               {shopPage.subtitle}
             </p>
+            <div className="mt-7" data-reveal>
+              <PromoPill />
+            </div>
           </div>
         </section>
 
